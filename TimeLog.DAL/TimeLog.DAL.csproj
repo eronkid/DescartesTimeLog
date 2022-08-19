@@ -257,6 +257,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\ApplicationDbContext.cs" />
+    <Compile Include="Data\DescartesContext.cs" />
+    <Compile Include="Data\DescartesModels\Employee.cs" />
+    <Compile Include="Data\DescartesModels\TimeLog.cs" />
     <Compile Include="Migrations\20220819133549_Initial.cs" />
     <Compile Include="Migrations\20220819133549_Initial.designer.cs">
       <DependentUpon>20220819133549_Initial.cs</DependentUpon>
@@ -268,6 +271,7 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
