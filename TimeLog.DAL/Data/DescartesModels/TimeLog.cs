@@ -11,6 +11,7 @@ namespace TimeLog.DAL.Data.DescartesModels
     {
         public string Id { get; set; }
         public string EmployeeId { get; set; }
+        public bool IsTimeIn { get; set; }
         public DateTime TimeIn { get; set; }
         public DateTime? TimeOut { get; set; }
 
