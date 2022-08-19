@@ -261,6 +261,7 @@
     <Compile Include="Data\DescartesModels\Employee.cs" />
     <Compile Include="Data\DescartesModels\TimeLog.cs" />
     <Compile Include="DtoModels\EmployeeDto.cs" />
+    <Compile Include="DtoModels\TimeLogDto.cs" />
     <Compile Include="Interfaces\IBaseRepository.cs" />
     <Compile Include="Interfaces\IEmployeeRepository.cs" />
     <Compile Include="Interfaces\ITimeLogRepository.cs" />

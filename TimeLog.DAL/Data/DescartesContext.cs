@@ -21,7 +21,7 @@ namespace TimeLog.DAL.Data
         }
 
         public virtual DbSet<Employee> Employee { get; set; }
-        public virtual DbSet<TimeLog.DAL.Data.DescartesModels.TimeLog> TimeLog { get; set; }
+        public virtual DbSet<DescartesModels.TimeLog> TimeLog { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -50,7 +50,7 @@ namespace TimeLog.DAL.Data
                 entity.Property(e => e.MiddleName).HasMaxLength(50);
             });
 
-            modelBuilder.Entity<TimeLog.DAL.Data.DescartesModels.TimeLog>(entity =>
+            modelBuilder.Entity<DescartesModels.TimeLog>(entity =>
             {
                 entity.Property(e => e.EmployeeId)
                     .IsRequired()
