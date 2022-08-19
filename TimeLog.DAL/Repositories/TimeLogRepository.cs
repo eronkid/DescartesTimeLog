@@ -16,6 +16,11 @@ namespace TimeLog.DAL.Repositories
             base.SaveChanges();
         }
 
+        public IEnumerable<Data.DescartesModels.TimeLog> GetAll()
+        {
+            return base.TimeLog.ToList();
+        }
+
         public Data.DescartesModels.TimeLog GetByEmployeeId(string employeeId)
         {
             return base.TimeLog.Where(r => r.EmployeeId == employeeId).FirstOrDefault();

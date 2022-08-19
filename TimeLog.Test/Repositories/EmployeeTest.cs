@@ -32,6 +32,25 @@ namespace TimeLog.Test
         }
 
         [TestMethod]
+        public void TestGetAll()
+        {
+            var isValid = false;
+
+            try
+            {
+                var repo = new EmployeeRepository();
+                var record = repo.GetAll();
+                isValid = record != null;
+
+                Assert.IsTrue(isValid);
+            }
+            catch (Exception ex)
+            {
+                Assert.IsTrue(isValid);
+            }
+        }
+
+        [TestMethod]
         public void TestGetById()
         {
             var isValid = false;
@@ -42,6 +61,27 @@ namespace TimeLog.Test
 
                 var repo = new EmployeeRepository();
                 var record = repo.GetById(id);
+                isValid = record != null;
+
+                Assert.IsTrue(isValid);
+            }
+            catch (Exception ex)
+            {
+                Assert.IsTrue(isValid);
+            }
+        }
+
+        [TestMethod]
+        public void TestSearch()
+        {
+            var isValid = false;
+
+            try
+            {
+                var name = ""; // Search name
+
+                var repo = new EmployeeRepository();
+                var record = repo.Search(name);
                 isValid = record != null;
 
                 Assert.IsTrue(isValid);

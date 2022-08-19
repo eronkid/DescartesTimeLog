@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,9 +19,22 @@ namespace TimeLog.DAL.Repositories
             base.SaveChanges();
         }
 
+        public IEnumerable<Employee> GetAll()
+        {
+            return base.Employee.ToList();
+        }
+
         public Employee GetById(string id)
         {
             return base.Employee.Where(r => r.Id == id).FirstOrDefault();
+        }
+
+        public IEnumerable<Employee> Search(string name)
+        {
+            return base.Employee.Where(r => r.FirstName.Contains(name) || 
+            r.MiddleName.Contains(name) || 
+            r.LastName.Contains(name))
+            .ToList();
         }
 
         public void Update(EmployeeDto modelDto)

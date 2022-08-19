@@ -35,6 +35,25 @@ namespace TimeLog.Test
         }
 
         [TestMethod]
+        public void TestGetAll()
+        {
+            var isValid = false;
+
+            try
+            {
+                var repo = new TimeLogRepository();
+                var record = repo.GetAll();
+                isValid = record != null;
+
+                Assert.IsTrue(isValid);
+            }
+            catch (Exception ex)
+            {
+                Assert.IsTrue(isValid);
+            }
+        }
+
+        [TestMethod]
         public void TestGetByEmployeeId()
         {
             var isValid = false;
