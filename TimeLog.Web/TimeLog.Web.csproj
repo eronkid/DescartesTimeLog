@@ -13,4 +13,9 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.28" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TimeLog.Business\TimeLog.Business.csproj" />
+    <ProjectReference Include="..\TimeLog.DAL\TimeLog.DAL.csproj" />
+  </ItemGroup>
+
 </Project>
