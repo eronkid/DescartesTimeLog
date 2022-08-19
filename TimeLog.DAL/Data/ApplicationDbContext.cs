@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace TimeLog.Web.Data
+namespace TimeLog.DAL.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
