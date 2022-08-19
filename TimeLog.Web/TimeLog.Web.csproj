@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TimeLog.Business\TimeLog.Business.csproj" />
     <ProjectReference Include="..\TimeLog.DAL\TimeLog.DAL.csproj" />
   </ItemGroup>
 

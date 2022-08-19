@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeLog.Web", "TimeLog.Web\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeLog.DAL", "TimeLog.DAL\TimeLog.DAL.csproj", "{FE715924-483B-4256-8021-C90065CB5F50}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeLog.Business", "TimeLog.Business\TimeLog.Business.csproj", "{802C1C91-04D0-4910-80EC-5DE84CF9F591}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{FE715924-483B-4256-8021-C90065CB5F50}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE715924-483B-4256-8021-C90065CB5F50}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE715924-483B-4256-8021-C90065CB5F50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{802C1C91-04D0-4910-80EC-5DE84CF9F591}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{802C1C91-04D0-4910-80EC-5DE84CF9F591}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{802C1C91-04D0-4910-80EC-5DE84CF9F591}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{802C1C91-04D0-4910-80EC-5DE84CF9F591}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
