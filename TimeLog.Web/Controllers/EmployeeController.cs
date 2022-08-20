@@ -128,16 +128,16 @@ namespace TimeLog.Web.Controllers
 
         // POST: Employee/Delete/5
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public bool Delete(string id)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                _employeeService.Delete(id);
+                return true;
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                return false;
             }
         }
     }

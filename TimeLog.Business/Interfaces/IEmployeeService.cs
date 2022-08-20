@@ -14,5 +14,6 @@ namespace TimeLog.Business.Interfaces
         List<Employee> GetAll();
         Employee GetById(string id);
         void Update(EmployeeDto modelDto);
+        void Delete(string id);
     }
 }

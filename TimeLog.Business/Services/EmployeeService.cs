@@ -66,5 +66,17 @@ namespace TimeLog.Business.Services
                 throw;
             }
         }
+
+        public void Delete(string id)
+        {
+            try
+            {
+                _employeeRepository.Delete(id);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }

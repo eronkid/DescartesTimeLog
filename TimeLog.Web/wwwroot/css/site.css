@@ -73,3 +73,12 @@ body {
 .hidden {
     display: none;
 }
+
+span#delete {
+    color: #0366d6;
+    cursor: pointer;
+}
+
+span#delete:hover {
+    text-decoration: underline;
+}
