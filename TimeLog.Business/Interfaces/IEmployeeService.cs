@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TimeLog.DAL.Data.DescartesModels;
 
 namespace TimeLog.Business.Interfaces
 {
     public interface IEmployeeService : IBaseService
     {
+        void Create(Employee model);
+        List<Employee> GetAll();
     }
 }

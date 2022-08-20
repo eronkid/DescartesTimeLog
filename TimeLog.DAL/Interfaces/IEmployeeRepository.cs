@@ -11,6 +11,7 @@ namespace TimeLog.DAL.Interfaces
     public interface IEmployeeRepository : IBaseRepository
     {
         void Create(Employee model);
+        IEnumerable<Employee> GetAll();
         Employee GetById(string id);
         IEnumerable<Employee> Search(string name);
         void Update(EmployeeDto modelDto);
