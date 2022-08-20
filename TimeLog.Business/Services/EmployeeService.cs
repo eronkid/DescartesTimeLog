@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TimeLog.Business.Interfaces;
 using TimeLog.DAL.Data.DescartesModels;
+using TimeLog.DAL.DtoModels;
 using TimeLog.DAL.Interfaces;
 
 namespace TimeLog.Business.Services
@@ -40,6 +41,30 @@ namespace TimeLog.Business.Services
                 throw;
             }
             
+        }
+
+        public Employee GetById(string id)
+        {
+            try
+            {
+                return _employeeRepository.GetById(id);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public void Update(EmployeeDto modelDto)
+        {
+            try
+            {
+                _employeeRepository.Update(modelDto);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
     }
 }

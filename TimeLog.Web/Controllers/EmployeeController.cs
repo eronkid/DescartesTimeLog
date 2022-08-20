@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using TimeLog.Business.Interfaces;
 using TimeLog.DAL.Data.DescartesModels;
+using TimeLog.DAL.DtoModels;
 using TimeLog.Web.Models;
 
 namespace TimeLog.Web.Controllers
@@ -62,8 +63,6 @@ namespace TimeLog.Web.Controllers
         {
             try
             {
-                
-
                 if (ModelState.IsValid)
                 {
                     var model = new Employee()
@@ -85,18 +84,34 @@ namespace TimeLog.Web.Controllers
         }
 
         // GET: Employee/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(string id)
         {
-            return View();
+            var entity = _employeeService.GetById(id);
+            var viewModel = new EmployeeViewModel()
+            {
+                Id = entity.Id,
+                FirstName = entity.FirstName,
+                MiddleName = entity.MiddleName,
+                LastName = entity.LastName
+            };
+            return View(viewModel);
         }
 
         // POST: Employee/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(string id, IFormCollection collection)
         {
             try
             {
+                var modelDto = new EmployeeDto()
+                {
+                    Id = id,
+                    FirstName = collection["FirstName"],
+                    MiddleName = collection["MiddleName"],
+                    LastName = collection["LastName"]
+                };
+                _employeeService.Update(modelDto);
                 return RedirectToAction(nameof(Index));
             }
             catch
