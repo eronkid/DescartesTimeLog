@@ -11,5 +11,7 @@ namespace TimeLog.Web.Models
         public string MiddleName { get; set; }
         [Display(Name = "Last name")]
         public string LastName { get; set; }
+        public string TimeIn { get; set; }
+        public string TimeOut { get; set; }
     }
 }

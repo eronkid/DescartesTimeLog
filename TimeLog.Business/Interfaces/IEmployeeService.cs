@@ -12,6 +12,7 @@ namespace TimeLog.Business.Interfaces
     {
         void Create(Employee model);
         List<Employee> GetAll();
+        List<Employee> GetAll(bool isTimeIn);
         Employee GetById(string id);
         void Update(EmployeeDto modelDto);
         void Delete(string id);

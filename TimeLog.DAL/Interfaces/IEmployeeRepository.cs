@@ -12,6 +12,7 @@ namespace TimeLog.DAL.Interfaces
     {
         void Create(Employee model);
         IEnumerable<Employee> GetAll();
+        IEnumerable<Employee> GetAll(bool isTimeIn);
         Employee GetById(string id);
         IEnumerable<Employee> Search(string name);
         void Update(EmployeeDto modelDto);

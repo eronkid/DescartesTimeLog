@@ -43,6 +43,18 @@ namespace TimeLog.Business.Services
             
         }
 
+        public List<Employee> GetAll(bool isTimeIn)
+        {
+            try
+            {
+                return _employeeRepository.GetAll(isTimeIn).OrderBy(r => r.FirstName).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }            
+        }
+
         public Employee GetById(string id)
         {
             try
