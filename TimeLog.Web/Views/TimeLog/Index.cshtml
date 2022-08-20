@@ -9,7 +9,7 @@
 <table id="active-employees" class="table">
     <thead>
         <tr>
-            <th>
+            <th class="hidden">
                 Id
             </th>
             <th>
@@ -30,23 +30,23 @@
     <tbody>
 @foreach (var item in Model.EmployeeTimeIns) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
+            <td class="hidden">
+                <span class="id">@Html.DisplayFor(modelItem => item.Id)</span>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
+                <span class="firstName">@Html.DisplayFor(modelItem => item.FirstName)</span>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.MiddleName)
+                <span class="middleName">@Html.DisplayFor(modelItem => item.MiddleName)</span>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.LastName)
+                <span class="lastName">@Html.DisplayFor(modelItem => item.LastName)</span>
             </td>
             <td>
-                @item.TimeIn
+                <span class="time">@item.TimeIn</span>
             </td>
             <td>
-                <button class="btn btn-warning">Time out</button>
+                <button id="time-out-btn" class="btn btn-warning">Time out</button>
             </td>
         </tr>
 }
@@ -56,7 +56,7 @@
 <table id="absent-employees" class="table">
     <thead>
         <tr>
-            <th>
+            <th class="hidden">
                 Id
             </th>
             <th>
@@ -77,23 +77,23 @@
     <tbody>
 @foreach (var item in Model.EmployeeTimeOuts) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
+            <td class="hidden">
+                <span class="id">@Html.DisplayFor(modelItem => item.Id)</span>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
+                <span class="firstName">@Html.DisplayFor(modelItem => item.FirstName)</span>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.MiddleName)
+                <span class="middleName">@Html.DisplayFor(modelItem => item.MiddleName)</span>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.LastName)
+                <span class="lastName">@Html.DisplayFor(modelItem => item.LastName)</span>
             </td>
             <td>
-                @item.TimeOut
+                <span class="time">@item.TimeOut</span>
             </td>
             <td>
-                <button class="btn btn-success">Time in</button>
+                <button id="time-in-btn" class="btn btn-success">Time in</button>
             </td>
         </tr>
 }

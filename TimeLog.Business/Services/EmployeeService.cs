@@ -13,9 +13,13 @@ namespace TimeLog.Business.Services
     public class EmployeeService : BaseService, IEmployeeService
     {
         private readonly IEmployeeRepository _employeeRepository;
-        public EmployeeService(IEmployeeRepository employeeRepository)
+        private readonly ITimeLogRepository _timeLogRepository;
+
+        public EmployeeService(IEmployeeRepository employeeRepository,
+            ITimeLogRepository timeLogRepository)
         {
             _employeeRepository = employeeRepository;
+            _timeLogRepository = timeLogRepository;
         }
 
         public void Create(Employee model)
@@ -89,6 +93,18 @@ namespace TimeLog.Business.Services
             {
                 throw;
             }
+        }
+
+        public DateTime UpdateTimeLog(TimeLogDto modelDto)
+        {
+            try
+            {
+                return _timeLogRepository.Update(modelDto);
+            }
+            catch (Exception)
+            {
+                throw;
+            }            
         }
     }
 }

@@ -9,7 +9,7 @@ namespace TimeLog.Test
     [TestClass]
     public class TimeLogTest
     {
-        private string employeeId = ""; // Employee id
+        private string employeeId = "a31daebe-4a74-4150-9ae4-a6af71c1af6e"; // Employee id
 
         [TestMethod]
         public void TestCreate()
@@ -103,7 +103,7 @@ namespace TimeLog.Test
                 };
 
                 var repo = new TimeLogRepository();
-                repo.Update(model);
+                var datetime = repo.Update(model);
                 Assert.IsTrue(true);
             }
             catch (Exception ex)
@@ -124,7 +124,7 @@ namespace TimeLog.Test
                 };
 
                 var repo = new TimeLogRepository();
-                repo.Update(model);
+                var datetime = repo.Update(model);
                 Assert.IsTrue(true);
             }
             catch (Exception ex)

@@ -15,6 +15,7 @@ namespace TimeLog.Business.Interfaces
         List<Employee> GetAll(bool isTimeIn);
         Employee GetById(string id);
         void Update(EmployeeDto modelDto);
+        DateTime UpdateTimeLog(TimeLogDto modelDto);
         void Delete(string id);
     }
 }

@@ -34,18 +34,35 @@ namespace TimeLog.DAL.Repositories
         /// <summary>
         /// EmployeeId and IsTimeIn only
         /// </summary>        
-        public void Update(TimeLogDto modelDto)
+        public DateTime Update(TimeLogDto modelDto)
         {
             var entity = base.TimeLog.Where(r => r.EmployeeId == modelDto.EmployeeId).FirstOrDefault();
 
-            entity.IsTimeIn = modelDto.IsTimeIn;
-            if (modelDto.IsTimeIn)
-                entity.TimeIn = DateTime.Now;
-            else
-                entity.TimeOut = DateTime.Now;
+            if (entity != null)
+            {
+                entity.IsTimeIn = modelDto.IsTimeIn;
+                if (modelDto.IsTimeIn)
+                    entity.TimeIn = DateTime.Now;
+                else
+                    entity.TimeOut = DateTime.Now;
 
-            base.TimeLog.Attach(entity);
-            base.SaveChanges();
+                base.TimeLog.Attach(entity);
+                base.SaveChanges();
+
+                return (modelDto.IsTimeIn) ? entity.TimeIn : entity.TimeOut.Value;
+            }
+            else
+            {
+                var createModel = new DAL.Data.DescartesModels.TimeLog()
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    EmployeeId = modelDto.EmployeeId,
+                    IsTimeIn = true,
+                    TimeIn = DateTime.Now
+                };
+                this.Create(createModel);
+                return createModel.TimeIn;
+            }
         }
 
         public void Delete(string id)

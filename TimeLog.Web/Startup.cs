@@ -33,6 +33,7 @@ namespace TimeLog.Web
         {
             services.AddScoped<IEmployeeService, EmployeeService>();
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            services.AddScoped<ITimeLogRepository, TimeLogRepository>();
 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(

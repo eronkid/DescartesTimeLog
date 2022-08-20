@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TimeLog.Business.Interfaces;
 using TimeLog.DAL.Data.DescartesModels;
+using TimeLog.DAL.DtoModels;
 using TimeLog.Web.Models;
 
 namespace TimeLog.Web.Controllers
@@ -74,12 +75,12 @@ namespace TimeLog.Web.Controllers
 
         // POST: TimeLogController/Edit/5
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(TimeLogDto modelDto)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                var dt = _employeeService.UpdateTimeLog(modelDto);                
+                return Json(new { Success = true, DateTime = dt.ToString("dd MMM yyyy hh:mm:ss tt") });
             }
             catch
             {
