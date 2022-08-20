@@ -11,5 +11,7 @@ namespace TimeLog.DAL.DtoModels
         public string Id { get; set; }
         public string EmployeeId { get; set; }
         public bool IsTimeIn { get; set; }
+        public string TimeIn { get; set; }
+        public string TimeOut { get; set; }
     }
 }

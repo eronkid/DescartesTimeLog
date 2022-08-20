@@ -51,6 +51,27 @@ namespace TimeLog.Test
         }
 
         [TestMethod]
+        public void TestGetAllTimeInAndOut()
+        {
+            var isValid = false;
+
+            try
+            {                
+                var isTimeIn = true;
+
+                var repo = new EmployeeRepository();
+                var record = repo.GetAll(isTimeIn);
+                isValid = record != null;
+
+                Assert.IsTrue(isValid);
+            }
+            catch (Exception ex)
+            {
+                Assert.IsTrue(isValid);
+            }
+        }
+
+        [TestMethod]
         public void TestGetById()
         {
             var isValid = false;

@@ -12,8 +12,9 @@ namespace TimeLog.DAL.Interfaces
         void Create(Data.DescartesModels.TimeLog model);
         Data.DescartesModels.TimeLog GetByEmployeeId(string employeeId);
         string GetIdByEmployeeId(string employeeId);
-        void Update(TimeLogDto modelDto);
+        DateTime Update(TimeLogDto modelDto);
         void Delete(string id);
+        void DeleteByEmployeeId(string employeeId);
 
     }
 }

@@ -103,7 +103,7 @@ namespace TimeLog.Test
                 };
 
                 var repo = new TimeLogRepository();
-                repo.Update(model);
+                var datetime = repo.Update(model);
                 Assert.IsTrue(true);
             }
             catch (Exception ex)
@@ -124,7 +124,7 @@ namespace TimeLog.Test
                 };
 
                 var repo = new TimeLogRepository();
-                repo.Update(model);
+                var datetime = repo.Update(model);
                 Assert.IsTrue(true);
             }
             catch (Exception ex)
@@ -142,6 +142,21 @@ namespace TimeLog.Test
 
                 var repo = new TimeLogRepository();
                 repo.Delete(id);
+                Assert.IsTrue(true);
+            }
+            catch (Exception ex)
+            {
+                Assert.IsTrue(false);
+            }
+        }
+
+        [TestMethod]
+        public void TestDeleteByEmployeeId()
+        {
+            try
+            {
+                var repo = new TimeLogRepository();
+                repo.DeleteByEmployeeId(employeeId);
                 Assert.IsTrue(true);
             }
             catch (Exception ex)

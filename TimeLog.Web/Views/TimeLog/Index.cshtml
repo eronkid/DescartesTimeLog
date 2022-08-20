@@ -1,0 +1,104 @@
+﻿@model TimeLog.Web.Models.TimeLogViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Employee Time Log</h1>
+<h4 class="green">Active Employees</h4>
+<table id="active-employees" class="table">
+    <thead>
+        <tr>
+            <th class="hidden">
+                Id
+            </th>
+            <th>
+                First name
+            </th>
+            <th>
+                Middle name
+            </th>
+            <th>
+                Last name
+            </th>
+            <th>
+                Time in
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.EmployeeTimeIns) {
+        <tr>
+            <td class="hidden">
+                <span class="id">@Html.DisplayFor(modelItem => item.Id)</span>
+            </td>
+            <td>
+                <span class="firstName">@Html.DisplayFor(modelItem => item.FirstName)</span>
+            </td>
+            <td>
+                <span class="middleName">@Html.DisplayFor(modelItem => item.MiddleName)</span>
+            </td>
+            <td>
+                <span class="lastName">@Html.DisplayFor(modelItem => item.LastName)</span>
+            </td>
+            <td>
+                <span class="time">@item.TimeIn</span>
+            </td>
+            <td>
+                <button id="time-out-btn" class="btn btn-warning">Time out</button>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<br/>
+
+<h4>Inactive Employees</h4>
+<table id="absent-employees" class="table">
+    <thead>
+        <tr>
+            <th class="hidden">
+                Id
+            </th>
+            <th>
+                First name
+            </th>
+            <th>
+                Middle name
+            </th>
+            <th>
+                Last name
+            </th>
+            <th>
+                Time out
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.EmployeeTimeOuts) {
+        <tr>
+            <td class="hidden">
+                <span class="id">@Html.DisplayFor(modelItem => item.Id)</span>
+            </td>
+            <td>
+                <span class="firstName">@Html.DisplayFor(modelItem => item.FirstName)</span>
+            </td>
+            <td>
+                <span class="middleName">@Html.DisplayFor(modelItem => item.MiddleName)</span>
+            </td>
+            <td>
+                <span class="lastName">@Html.DisplayFor(modelItem => item.LastName)</span>
+            </td>
+            <td>
+                <span class="time">@item.TimeOut</span>
+            </td>
+            <td>
+                <button id="time-in-btn" class="btn btn-success">Time in</button>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<TimeLog.Web.Models.EmployeeViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Employee Master Data</h1>
+
+<div class="row">
+    <div class="col-6"><button class="btn btn-success" onclick="location.href='@Url.Action("Create", "Employee")'">Create New</button></div>
+    <div class="col-3">
+        <input id="search" class="form-control" type="text" placeholder="Search name" />        
+    </div>
+    <div class="col-3">
+        <button class="btn btn-success search-btn">Go</button>
+    </div>
+</div>
+<br />
+<table id="employees" class="table">
+    <thead>
+        <tr>
+            <th class="hidden">
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MiddleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td class="id hidden">
+                <span>@Html.DisplayFor(modelItem => item.Id)</span>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MiddleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id = item.Id  }) |
+                @*@Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+                <span id="delete">Delete</span>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
