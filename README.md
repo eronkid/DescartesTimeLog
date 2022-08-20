@@ -1,4 +1,4 @@
-# TimeLog
+# Readme
 
 <ol>
   <li>Create Descartes database then execute the database.sql file</li>
