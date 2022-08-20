@@ -19,7 +19,7 @@ var searchEmployees = {
             name: search
         }).done(function (result) {
             if (result.success) {
-                $('table#employees').find('tr').remove();
+                $('table#employees').find('tbody tr').remove();
                 $.each(result.employees, function (i, v) {
                     if (v.middleName === null) {
                         v.middleName = "";
