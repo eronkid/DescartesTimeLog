@@ -120,6 +120,32 @@ namespace TimeLog.Web.Controllers
             }
         }
 
+        [HttpPost]
+        public ActionResult Search(string name)
+        {
+            try
+            {
+                var employees = (name != null) ? _employeeService.Search(name) : _employeeService.GetAll();
+                var searchedEmployees = new List<EmployeeViewModel>();
+                foreach (var item in employees)
+                {
+                    searchedEmployees.Add(new EmployeeViewModel()
+                    {
+                        Id = item.Id,
+                        FirstName = item.FirstName,
+                        MiddleName = item.MiddleName,
+                        LastName = item.LastName
+                    });
+                }
+                return Json(new { Success = true, Employees = searchedEmployees });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { Success = false });
+            }
+            
+        }
+
         // GET: Employee/Delete/5
         public ActionResult Delete(int id)
         {

@@ -9,7 +9,7 @@ namespace TimeLog.Test
     [TestClass]
     public class TimeLogTest
     {
-        private string employeeId = "a31daebe-4a74-4150-9ae4-a6af71c1af6e"; // Employee id
+        private string employeeId = ""; // Employee id
 
         [TestMethod]
         public void TestCreate()
@@ -142,6 +142,21 @@ namespace TimeLog.Test
 
                 var repo = new TimeLogRepository();
                 repo.Delete(id);
+                Assert.IsTrue(true);
+            }
+            catch (Exception ex)
+            {
+                Assert.IsTrue(false);
+            }
+        }
+
+        [TestMethod]
+        public void TestDeleteByEmployeeId()
+        {
+            try
+            {
+                var repo = new TimeLogRepository();
+                repo.DeleteByEmployeeId(employeeId);
                 Assert.IsTrue(true);
             }
             catch (Exception ex)

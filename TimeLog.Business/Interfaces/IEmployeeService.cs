@@ -17,5 +17,6 @@ namespace TimeLog.Business.Interfaces
         void Update(EmployeeDto modelDto);
         DateTime UpdateTimeLog(TimeLogDto modelDto);
         void Delete(string id);
+        List<Employee> Search(string name);
     }
 }

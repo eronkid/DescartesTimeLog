@@ -3,7 +3,45 @@
 
 // Write your JavaScript code.
 
-$('span#delete').click(function () {
+var searchEmployees = {
+    html: function (id, first, middle, last) {
+        var htmlStr = "<tr>";
+        htmlStr += "<td class=\"id hidden\"><span>" + id + "</span></td>";
+        htmlStr += "<td>" + first + "</td>";
+        htmlStr += "<td>" + middle + "</td>";
+        htmlStr += "<td>" + last + "</td>";
+        htmlStr += "<td><a href=\"/Employee/Edit/" + id + "\">Edit</a> | <span id=\"delete\">Delete</span></td>";
+        htmlStr += "</tr>";
+        return htmlStr;
+    },
+    getEmployees: function (search) {
+        $.post("Employee/Search", {
+            name: search
+        }).done(function (result) {
+            if (result.success) {
+                $('table#employees').find('tr').remove();
+                $.each(result.employees, function (i, v) {
+                    if (v.middleName === null) {
+                        v.middleName = "";
+                    }
+                    $('table#employees').find('tbody').append(searchEmployees.html(v.id, v.firstName, v.middleName, v.lastName));
+                });
+            }
+        });
+    }
+}
+
+$('button.search-btn').click(function () {
+    let search = $('#search').val();
+    if (search !== "") {
+        searchEmployees.getEmployees(search);
+    }
+    else {
+        searchEmployees.getEmployees(search);
+    }
+})
+
+$(document).on('click', 'span#delete', function (e) {
     let row = $(this).closest('tr');
     let employeeId = $(this).parent().siblings('.id').find('span').text();
 

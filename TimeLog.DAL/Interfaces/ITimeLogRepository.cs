@@ -14,6 +14,7 @@ namespace TimeLog.DAL.Interfaces
         string GetIdByEmployeeId(string employeeId);
         DateTime Update(TimeLogDto modelDto);
         void Delete(string id);
+        void DeleteByEmployeeId(string employeeId);
 
     }
 }

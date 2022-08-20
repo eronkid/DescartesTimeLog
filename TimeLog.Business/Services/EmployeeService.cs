@@ -87,6 +87,7 @@ namespace TimeLog.Business.Services
         {
             try
             {
+                _timeLogRepository.DeleteByEmployeeId(id);
                 _employeeRepository.Delete(id);
             }
             catch (Exception ex)
@@ -102,6 +103,18 @@ namespace TimeLog.Business.Services
                 return _timeLogRepository.Update(modelDto);
             }
             catch (Exception)
+            {
+                throw;
+            }            
+        }
+
+        public List<Employee> Search(string name)
+        {
+            try
+            {
+                return _employeeRepository.Search(name).ToList();
+            }
+            catch (Exception ex)
             {
                 throw;
             }            

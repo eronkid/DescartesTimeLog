@@ -72,5 +72,16 @@ namespace TimeLog.DAL.Repositories
             base.TimeLog.Remove(model);
             base.SaveChanges();
         }
+
+        public void DeleteByEmployeeId(string employeeId)
+        {
+            var entity = GetByEmployeeId(employeeId);
+            if (entity != null)
+            {
+                base.TimeLog.Attach(entity);
+                base.TimeLog.Remove(entity);
+                base.SaveChanges();
+            }            
+        }
     }
 }
